@@ -6,37 +6,25 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Button,
-  FlatList,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import React from 'react';
+import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
 
 const App = () => {
   addEntry = () => {
-    alert("Abrir tela de adicionar lançamento.");
-  }
+    meuAlerta();
+  };
+  
+  const meuAlerta = () => {
+    const nome = 'Marcelo';
+    alert(`Olá ${ nome } tudo bem?`);
+  };
 
   return (
-    <View style={{padding: 10}}>
-      <Text style={{fontSize: 22, fontWeight: "bold", marginTop: 10, marginBottom: 10}}>Saldo: $2.102,45</Text>
-      <Button onPress={addEntry} title="Adicionar"></Button>
+    <View style={{ padding: 10 }}>
+      <Text style={ styles.title }>Saldo: $2.102,45</Text>
+      <Button onPress={addEntry} title='Adicionar' />
 
-      <Text style={{fontSize: 22, fontWeight: "bold", marginTop: 10, marginBottom: 10}}>Categorias</Text>
+      <Text style={ styles.title }>Categorias</Text>
       <FlatList
         data={[
           {key: 'Alimentação: $200'},
@@ -48,7 +36,7 @@ const App = () => {
         renderItem={({item}) => <Text>{item.key}</Text>}>
       </FlatList>
 
-      <Text style={{fontSize: 22, fontWeight: "bold", marginTop: 10, marginBottom: 10}}>Últimos Lançamentos</Text>
+      <Text style={ styles.title }>Últimos Lançamentos</Text>
       <FlatList
         data={[
           {key: 'Padaria Asa Branca: $10'},
@@ -61,6 +49,13 @@ const App = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginBottom: 10
+  }
+});
 
 export default App;
